@@ -6,14 +6,20 @@
     "build/web": "build/web"
   },
   "scripts": {
-    "webpack": "webpack serve",
+    "prebuild": "flutter build web --profile --source-maps",
+    "webpack": "npm run prebuild && webpack serve",
     "build": "webpack --mode=production"
+  },
+  "dependencies": {
+    "single-spa-html": "^1.3.0"
   },
   "devDependencies": {
     "babel-loader": "^9.1.3",
+    "clean-webpack-plugin": "^4.0.0",
     "copy-webpack-plugin": "^11.0.0",
     "html-loader": "^4.2.0",
     "html-webpack-plugin": "^5.5.3",
+    "script-loader": "^0.7.2",
     "standalone-single-spa-webpack-plugin": "^4.0.0",
     "webpack": "^5.88.2",
     "webpack-cli": "^5.1.4",
